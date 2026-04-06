@@ -17,7 +17,7 @@ exclude = ["*.ipynb"]
 
 # Using candle 0.9.2-alpha.1 for CUDA 13.0 support via cudarc 0.17.1+
 candle-core = "0.9.2-alpha.1"
-candle-nn = "0.9.2-alpha.1"
+candle-nn = "0.10.2"
 log = "0.4.20"
 
 
