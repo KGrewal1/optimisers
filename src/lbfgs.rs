@@ -260,12 +260,7 @@ impl<'a, M: Model> LossOptimizer<'a, M> for Lbfgs<'a, M> {
 
         // z = q * gamma so use interior mutability of q to set it
         q.set(&(q.as_tensor() * gamma)?)?;
-        for (((s, y), alpha), rho) in self
-            .s_hist
-            .iter()
-            .zip(alphas.into_iter())
-            .zip(rhos.into_iter())
-        {
+        for (((s, y), alpha), rho) in self.s_hist.iter().zip(alphas).zip(rhos) {
             let beta = rho
                 * y.unsqueeze(0)?
                     .matmul(&(q.unsqueeze(1)?))?
