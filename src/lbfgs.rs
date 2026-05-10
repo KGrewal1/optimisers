@@ -263,8 +263,8 @@ impl<'a, M: Model> LossOptimizer<'a, M> for Lbfgs<'a, M> {
         for (((s, y), alpha), rho) in self
             .s_hist
             .iter()
-            .zip(alphas.into_iter())
-            .zip(rhos.into_iter())
+            .zip(alphas)
+            .zip(rhos)
         {
             let beta = rho
                 * y.unsqueeze(0)?
